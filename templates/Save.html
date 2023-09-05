@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+         <link rel="stylesheet" href="{% static  'css/main.css' %}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        }
+        .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        width: 425px;
+        height: 300px;
+        margin: 10px;
+        border: 1px solid black;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: transform 0.3s;
+    }
+
+    .card:hover .card-image {
+        transform: scale(1.1);
+        z-index: 1;
+    }
+    .contentstih .pop-up {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,80%);
+        display: none;
+    }
+    .contentstih .pop-up img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 90%; /* установите максимальную ширину изображения */
+        max-height: 90%; /* установите максимальную высоту изображения */
+        width: auto; /* установите ширину изображения */
+        height: auto; /* установите высоту изображения */
+
+    }
+    .card .card-image.animation-off {
+        pointer-events: none;
+    }
+    .pop-up img {
+      transition: all 0.5s ease-in-out;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+          <!--Header-->
+        <header class="neoh_fn_header">
+                <div class="container">
+                    <div class="header_in">
+                        <div class="logo">
+                            <a href={% url 'home' %}><img src="{% static 'img/logo.png' %}" width="64px" height="64px" title="icon by Icons8 https://icons8.com "></a>
+                        </div>
+
+                        <div class="trigger">
+                            <div class="trigger_in">
+                                <span class="textheader">Меню</span>
+                                <span class="hamb">
+                                    <span class="hamb_a"></span>
+                                    <span class="hamb_b"></span>
+                                    <span class="hamb_c"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </header>
+        <!--Header-->
+        <!--Секция контента-->
+        <div class="contentstih">
+            <div class="card-container">
+                {% for img in imagesave %}
+                <div class="card">
+                    <div class="card-image" style="background-image: url('{{ img.image }}')"></div>
+                </div>
+                {% endfor %}
+                <div class="pop-up">
+                    <img src="/img/bg-start.jpg">
+                </div>
+            </div>
+        </div>
+        <!--Секция контента-->
+         <!--Секция с footer-->
+        <div class="container">
+              <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                          <a href="#start"><img src="{% static 'img/logo.png' %}" width="32px" height="32px" title="icon by Icons8 https://icons8.com "></a>
+                          <span class="mb-3 mb-md-0 text-muted">Created by BurI0k</span>
+                    </div>
+
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                          <span>Мои соц сети:</span>
+                          <li class="ms-3"><a class="text-muted" href="https://vk.com/id447856506"><img src="{% static 'img/vk.png' %}" title="icon by Icons8"></a></li>
+                          <li class="ms-3"><a class="text-muted" href="https://instagram.com/ksenos1907?igshid=MzRlODBiNWFlZA=="><img src="{% static 'img/inst.png' %}" title="icon by Icons8" width="30px" height="30px"></a></li>
+                          <li class="ms-3"><a class="text-muted" href="https://t.me/Black_Cherry_Ksu"><img src="{% static 'img/telegram.png' %}" title="icon by Icons8" width="26px" height="26px"></a></li>
+                    </ul>
+              </footer>
+        </div>
+        <!--Секция с footer-->
+    </div>
+    <script>
+        let currentImageIndex = 0;
+        let cardImages = Array.from(document.querySelectorAll('.card .card-image    '));
+
+        document.addEventListener('keydown', (event) => {
+            // A key is pressed
+            if (event.key === 'a' || event.key === 'A' || event.key === 'ArrowLeft' || event.key === 'ф' || event.key === 'ф') {
+                // go to the previous image
+                if (currentImageIndex > 0) {
+                    currentImageIndex--;
+                    let imageUrl = getBackgroundImageUrl(cardImages[currentImageIndex]);
+                    showPopUpWithImage(imageUrl);
+                }
+            }
+            // D key is pressed
+            else if (event.key === 'd' || event.key === 'D' || event.key === 'ArrowRight' || event.key === 'в' || event.key === 'В') {
+                // go to the next image
+                if (currentImageIndex < cardImages.length - 1) {
+                    currentImageIndex++;
+                    let imageUrl = getBackgroundImageUrl(cardImages[currentImageIndex]);
+                    showPopUpWithImage(imageUrl);
+                }
+            }
+            // Esc key is pressed
+            else if (event.key === 'Escape') {
+                closePopUp();
+            }
+        });
+        function closePopUp() {
+            let popUp = document.querySelector('.pop-up');
+            popUp.style.display = 'none';
+
+            // remove 'animation-off' class to enable hover effect again for all images
+            cardImages.forEach(cardImage => cardImage.classList.remove('animation-off'));
+        }
+
+        function getBackgroundImageUrl(cardImage) {
+            let backgroundImageStyle = cardImage.style.backgroundImage;
+            return backgroundImageStyle.replace('url("','').replace('")', '');
+        }
+
+        function showPopUpWithImage(imageUrl) {
+            // show pop-up and set image
+            let popUp = document.querySelector('.pop-up');
+            let popUpImage = popUp.querySelector('img');
+
+            // transition to the next or previous image
+            popUpImage.style.opacity = 0;
+            setTimeout(() => {
+                popUpImage.src = imageUrl;
+                popUpImage.style.opacity = 1;
+            }, 500); // delay should be the same as transition duration in CSS
+
+            popUp.style.display = 'block';
+
+            // disable hover effect
+            cardImages.forEach(cardImage => cardImage.classList.add('animation-off'));
+            // enable hover effect for the current image
+            cardImages[currentImageIndex].classList.remove('animation-off');
+        }
+        document.querySelectorAll('.card .card-image').forEach((cardImage, index) => {
+            cardImage.onclick = () => {
+                // update the current image index
+                currentImageIndex = index;
+
+                // extract image url from css background-image
+                let backgroundImageStyle = cardImage.style.backgroundImage;
+                let imageUrl = backgroundImageStyle.replace('url("','').replace('")', '');
+
+                // show pop-up and set image
+                let popUp = document.querySelector('.pop-up');
+                popUp.style.display = 'block';
+                popUp.querySelector('img').src = imageUrl;
+
+                // add 'animation-off' class to disable hover effect
+                cardImage.classList.add('animation-off');
+            }
+        });
+
+
+        document.querySelector('.pop-up').addEventListener('click', (event) => {
+            // Check if the clicked element is not the image before closing the pop-up
+            if(event.target.tagName !== 'IMG') {
+                closePopUp();
+            }
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
