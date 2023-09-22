@@ -192,24 +192,7 @@
     });
 // Инициализация свайпера
 // --------------
-// Обработка видеоплеера
-// Получаем элементы превью видео и видеоплеера
-    let video = document.getElementById('myVideo');
-    let closeBtn = document.querySelector('.close');
-// Функция для обработки события нажатия на превью видео
-    function toggleVideo() {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }
+// --------------
+//Обработка картинок в сохраненках
 
-    function closeVideo() {
-        video.pause();
-        video.currentTime = 0;
-    }
-// Добавляем обработчик события нажатия на превью видео
-    video.addEventListener('click', toggleVideo);
-    closeBtn.addEventListener('click', closeVideo);
-// Обработка видеоплеера
+//Обработка картинок в сохраненках

@@ -584,7 +584,7 @@ svg#ines:hover  {
 }
 
 /*Текст*/
-.conteinercat{
+.conteinercat {
   text-align: center;
   position: absolute;
   top: 50%;
@@ -592,62 +592,62 @@ svg#ines:hover  {
   transform: translate(-50%, -50%);
   font-family: Snell Roundhand, cursive;
   font-style: italic;
-  margin-top: -65px;
 }
-.conteinercat span{
+
+.conteinercat span {
   text-transform: uppercase;
   display: block;
-
-
 }
-.textksucat1{
+
+.textksucat1 {
   color: whitesmoke;
-  font-size: 50px;
+  font-size: 1.8vw; /* Изменение размера шрифта на основе ширины экрана */
   font-weight: 800;
-  letter-spacing: 8px;
-  margin-bottom: 20px;
+  letter-spacing: 1vw; /* Изменение интервала между буквами на основе ширины экрана */
+  margin-bottom: 1vh; /* Изменение маргина снизу на основе высоты экрана */
   position: relative;
 }
-.textksucat1.animatecat1{
-   animation: textksucat1 3s 1;
+
+.textksucat1.animatecat1 {
+  animation: textksucat1 3s 1;
 }
 
-.textksucat2{
+.textksucat2 {
   color: whitesmoke;
-  font-size: 30px;
+  font-size: 1.5vw; /* Изменение размера шрифта на основе ширины экрана */
   font-weight: 800;
 }
-.textksucat2.animatecat2{
-   animation: textksucat2 3s 1;
+
+.textksucat2.animatecat2 {
+  animation: textksucat2 3s 1;
 }
-@keyframes  textksucat1 {
-  0%{
+
+@keyframes textksucat1 {
+  0% {
     color: white;
-    margin-bottom: -40px;
+    margin-bottom: -1vh; /* Анимация маргина снизу на основе высоты экрана */
   }
-  30%{
-
-    letter-spacing: 25px;
-    margin-bottom: -40px;
-
+  30% {
+    letter-spacing: 2vw; /* Изменение интервала между буквами на основе ширины экрана */
+    margin-bottom: -1vh; /* Анимация маргина снизу на основе высоты экрана */
   }
-  85%{
-    letter-spacing: 8px;
-    margin-bottom: -40px
+  85% {
+    letter-spacing: 1vw; /* Изменение интервала между буквами на основе ширины экрана */
+    margin-bottom: -1vh; /* Анимация маргина снизу на основе высоты экрана */
   }
 }
 
-@keyframes  textksucat2 {
-  0%{
+@keyframes textksucat2 {
+  0% {
     color: transparent;
   }
-  30%{
+  30% {
     color: transparent;
   }
-  85%{
+  85% {
     color: transparent;
   }
-  95%{
+  95% {
     color: white;
   }
 }
@@ -666,55 +666,62 @@ svg#ines:hover  {
   justify-content: center;
   text-align: center;
 }
-.plak-flip{
-    transform: scaleX(-1);
-    position: absolute;
-    max-height: 90vh;
+
+/* Стили для .plak-flip */
+.plak-flip {
+  transform: scaleX(-1);
+  position: absolute;
+  max-height: 90vh;
 }
 
+/* Стили для .uptext */
 .uptext {
   display: flex; /* Используем flex-контейнер для размещения элементов */
   align-items: center; /* Выравниваем элементы по вертикали */
   justify-content: center;
   position: relative;
-
 }
 
-
 .uptext img {
-  max-width: 50px; /* Устанавливаем максимальную ширину для картинок */
+  max-width: 5vw; /* Изменение размера картинок на основе ширины экрана */
 }
 
 .uptext h1 {
-  margin: 0 20px; /* Устанавливаем отступы между картинками и текстом */
+  margin: 0 2vw; /* Изменение отступов между картинками и текстом на основе ширины экрана */
 }
 
-
+/* Стили для .downtext */
 .downtext {
   position: relative;
 }
+
 .downtext span {
   opacity: 0;
 }
-.animationopacity{
-    animation: animationopacity 1s;
-}
-@keyframes animationopacity {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-.rak span {
-  display: block;
+
+.animationopacity {
+  animation: animationopacity 1s;
 }
 
+@keyframes animationopacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Стили для текста в .rak span */
+.rak span {
+  display: block;
+  font-size: 2vw; /* Изменение размера шрифта на основе ширины экрана */
+  margin: 1vh 0; /* Изменение маргина сверху и снизу на основе высоты экрана */
+}
 /*Секция рак*/
 
 /*Секция c сакурой*/
-.Jp{
+.Jp {
   width: auto;
   height: auto;
   max-width: 100%;
@@ -727,19 +734,26 @@ svg#ines:hover  {
   justify-content: center;
   text-align: center;
   color: white;
-  font-size: 30px;
+  font-size: 2vw; /* Изменение размера шрифта на основе ширины экрана */
 }
-.hueta{
-  width: 28px;
-  height: 28px;
+
+/* Стили для .hueta */
+.hueta {
+  width: 2vw; /* Изменение размеров изображения на основе ширины экрана */
+  height: 2vw; /* Изменение размеров изображения на основе ширины экрана */
   align-self: center;
   float: none;
 }
-.JpSmall{
-    opacity: 0;
+
+/* Стили для .JpSmall и .JpCentr */
+.JpSmall, .JpCentr {
+  opacity: 0;
+  font-size: 3vw; /* Изменение размера шрифта на основе ширины экрана */
 }
-.JpCentr{
-    opacity: 0;
+
+/* Дополнительные стили, если необходимо */
+.JpUp, .JpDown {
+  margin: 2vw 0; /* Изменение маргина сверху и снизу на основе ширины экрана */
 }
 /*Секция c сакурой*/
 /*Секция c Подводным миром*/
@@ -756,64 +770,63 @@ align-items: center;
 justify-content: space-between;
 text-align: center;
 color: white;
-font-size: 30px;
+font-size: 2vh;
 overflow-x: hidden;
 }
 .lefttext{
-    width: 300px;
-    margin-left: 100px;
-    opacity: 0;
+width: 300px;
+margin-left: 100px;
+opacity: 0;
 }
 .righttext{
-    width: 400px;
-    margin-right: 100px;
-    opacity: 0;
+width: 400px;
+margin-right: 100px;
+opacity: 0;
 }
+
 /*Секция c Подводным миром*/
 /*Секция c Играми*/
 .game {
   width: auto;
   height: auto;
   max-width: 100%;
-  min-height: 90vh;
+  min-height: 95vh;
   position: relative;
   font-family: Snell Roundhand, cursive;
   font-style: italic;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   text-align: center;
   color: white;
-  font-size: 100px;
+  font-size: 3vh; /* Изменение размера шрифта на основе ширины экрана */
 }
 
-.thumbnails {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
+/* Стили для .headswipe */
+.headswipe {
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  .headswipe {
+    font-size: 3.5vh; /* Увеличиваем размер шрифта на больших экранах */
+    font-weight: 300;
+  }
 }
 
-.thumbnail {
-  width: 80%; /* Измените размеры по вашему желанию */
-}
-.headswipe{
-    opacity: 0;
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 30%;
-    transform: translateY(-50%);
-}
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    color: white;
-    cursor: pointer;
+/* Медиазапрос для экранов шириной 1024px и более */
+@media (min-width: 1024px) {
+  .headswipe {
+    font-size: 4vh; /* Дополнительно увеличиваем размер шрифта на очень больших экранах */
+    font-weight: 300;
+  }
 }
 /*Секция c Играми*/
 /*Секция на переход*/
@@ -829,7 +842,6 @@ justify-content: center;
 text-align: center;
 color: white;
 font-size: 30px;
-background: black;
 overflow-x: hidden;
 }
 
@@ -944,6 +956,25 @@ overflow-x: hidden;
   justify-content: center;
   align-items: center;
 }
+.content-container span {
+  font-size: 2.5vh; /* Базовый размер шрифта */
+  font-weight: 300;
+}
+/* Медиазапрос для экранов шириной 768px и более */
+@media (min-width: 768px) {
+  .content-container span {
+    font-size: 3vh; /* Увеличиваем размер шрифта на больших экранах */
+    font-weight: 300;
+  }
+}
+
+/* Медиазапрос для экранов шириной 1024px и более */
+@media (min-width: 1024px) {
+  .content-container span {
+    font-size: 3.5vh; /* Дополнительно увеличиваем размер шрифта на очень больших экранах */
+    font-weight: 300;
+  }
+}
 
 .button-container {
   margin-top: 20px;
@@ -953,40 +984,44 @@ overflow-x: hidden;
   width: 300px;
 }
 /*Секция на переход в сохраненки*/
+/*Cтраница стихов*/
+    .contentT{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+/*Cтраница стихов*/
+/*Cтраница Рисунков*/
+        .swiper {
+          width: 800px;
+          height: 800px;
+        }
 
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
 
-/*Страница стихов */
-.contentstih{
-  position: relative;
-  justify-content: center;
-}
-/*Страница стихов */
-/*Свайпер*/
-.swiper {
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-}
+        .swiper-slide img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
 
-.swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-}
+        .swiper-slide {
+          width: 80%;
+        }
 
-.swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-}
-.swiper-slide video {
-      width: auto;
-      height: auto;
-      object-fit: contain;
-}
-/*Свайпер*/
+        .swiper-slide:nth-child(2n) {
+          width: 60%;
+        }
+
+        .swiper-slide:nth-child(3n) {
+          width: 40%;
+        }
+/*Cтраница Рисунков*/
